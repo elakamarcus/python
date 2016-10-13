@@ -3,6 +3,7 @@ import sys
 import random
 import logging # This and the following line are used to omit the IPv6 error displayed by importing scapy.
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
+#using scapy as it is ages easier than raw socket e.g. import socket and then call AF_INET etc.
 from scapy.all import *
 import argparse
 import os
@@ -25,7 +26,8 @@ i = 0 # variable used to control the while loop for the amount of times a packet
 #Function to send various flags. Each may trigger alert by IDS/IPS
 def sendTCP(d, p):
     flags = ["S","A","F","R"]
-    a=IP(dst=d)/TCP(flags="S", sport=RandShort(), dport=p)
+    for x in range (0, len(flags)-1):
+        a=IP(dst=d)/TCP(flags=flags[x], sport=RandShort(), dport=p)
     send(a, verbose=0) #transmit packet
 
 def sendUDP(d, p):
