@@ -21,32 +21,27 @@ if len(sys.argv) == 1: # Forces the help text to be displayed if no arguments ar
 args = vars(args) # converts the arguments into dictionary format for easier retrieval.
 i = 0 # variable used to control the while loop for the amount of times a packet is sent.
 
-def sendSYN(d, p):
+
+#Function to send various flags. Each may trigger alert by IDS/IPS
+def sendTCP(d, p):
+    flags = ["S","A","F","R"]
     a=IP(dst=d)/TCP(flags="S", sport=RandShort(), dport=p)
     send(a, verbose=0) #transmit packet
-end
-
-def sendACK(d, p):
-    a=IP(dst=d)/TCP(flags="A", sport=RandShort(), dport=p)
-    send(a, verbose=0) #transmit packet
-end
 
 def sendUDP(d, p):
-
-end
+    #check whether flags or other options are necessary
 
 def sendSMURF(d, p):
     #Pausing this one, as another active IP is required. Consider using the target's gateway and guessing it to be x.x.x.1'
-end
 
 if args['count'] == "X" or args['count'] == "x": # If the user entered an X or x into the count argument (wants unlimited SYN segments sent)
     while (1 == 1):
-        sendSYN(args['source'] int(args['port']))
+        sendTCP(args['source'] int(args['port']))
         i = i + 1
         print(str(i) + " Packet Sent")
 else: # executed if the user defined an amount of segments to send.
     while i < int(args['count']):
-        sendSYN(args['source'] int(args['port']))
+        sendTCP(args['source'] int(args['port']))
         i = i + 1
         print(str(i) + " Packet Sent")
 print("All packets successfully sent.")
