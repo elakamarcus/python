@@ -22,7 +22,6 @@ if len(sys.argv) == 1: # Forces the help text to be displayed if no arguments ar
 args = vars(args) # converts the arguments into dictionary format for easier retrieval.
 i = 0 # variable used to control the while loop for the amount of times a packet is sent.
 
-
 #Function to send various flags. Each may trigger alert by IDS/IPS
 def sendTCP(d, p):
     flags = ["S","A","F","R"]
