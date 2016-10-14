@@ -1,0 +1,9 @@
+#!/usr/bin/python
+
+import Tkinter
+top = Tkinter.Tk()
+# Code to add widgets will go here...
+var = "Test text"
+label = Tkinter.Message( top, textvariable=var, relief=RAISED )
+label.pack()
+top.mainloop()
