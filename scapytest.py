@@ -1,4 +1,4 @@
-# to be modified, not only syn-flood etc.
+# Noisy script to trigger IDS/IPS alerts.
 import sys
 import random
 import logging # This and the following line are used to omit the IPv6 error displayed by importing scapy.
@@ -25,7 +25,7 @@ i = 0 # variable used to control the while loop for the amount of times a packet
 #Function to send various flags. Each may trigger alert by IDS/IPS
 def sendTCP(d, p):
     flags = ["S","A","F","R"]
-    for x in range (0, len(flags)-1):
+    for x in range (0, len(flags)):
         a=IP(dst=d)/TCP(flags=flags[x], sport=RandShort(), dport=p)
     send(a, verbose=0) #transmit packet
 
