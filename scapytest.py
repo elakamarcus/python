@@ -47,6 +47,16 @@ def sendSMURF(d, p):
     a2=IP(dst=d,src=s)/TCP(flags="S", sport=RandShort(), dport=p, ack=sq+1, seq=1)
     send(a2)
 
+def sendAPT(d, p):
+    #ip2b 8bit + 4bit + 5bit
+    ip2b=[0x12,0x34,0x56,0x78,0x10,0x00,0x10,0x00,0xFF,0xFF,0xFF,0xFF,0x00,0x18,0x09,0x07,0x20]
+    qdigit=[0x51,0x31,0x39,0x21,0x00]
+    rats=["Gh0st", "LURK", ip2b, qdigit]
+    for x i nrange (0, len(rats)):
+        a=IP(dst=d)/TCP(flags="S", sport=RandShort(), dport=p, data=rats[x])
+        print("Sending rat: "+rats[x])
+        send(a, verbose=0)
+
 
 if args['count'] == "X" or args['count'] == "x": # If the user entered an X or x into the count argument (wants unlimited SYN segments sent)
     while (1 == 1):

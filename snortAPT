@@ -1,0 +1,11 @@
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:“APT QDIGIT PROTOCOL detected”; flow:to_server,established; content:”|51 31 39 21 00|”; depth:5; reference:url,www.commandfive.com/papers/C5_APT_C2InTheFifthDomain.pdf; classtype:trojan-activity; sid:3000004; rev:1;)
+ 
+alert tcp $HOME_NET any -> $EXTERNAL_NET [$HTTP_PORTS,12345] (msg:“APT UPDATE communicaction protocol detected”; flow:to_server,established; content:“X|2d|Session|3A|”; nocase; http_header; content:“X|2d|Status|3A|”; nocase; http_header; content:“X|2d|Size|3A|”; nocase; http_header; content:“X|2d|Sn|3A|”; nocase; http_header; content:“User|2d|Agent|3a| Mozilla|2f|4|2e|0 |28|compatible|3b| MSIE 6|2e|0|3b| Windows NT 5|2e|1|3b|SV1|3b|”; nocase; http_header; reference:url,www.commandfive.com/papers/C5_APT_C2InTheFifthDomain.pdf; classtype:trojan-activity; sid:3000005; rev:1;)
+ 
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:“APT LURK communication protocol detected”; flow:established,to_server; content:”|4C 55 52 4B 30|”; depth:5; reference:url,www.commandfive.com/papers/C5_APT_C2InTheFifthDomain.pdf; classtype:trojan-activity; sid:3000006; rev:1;)
+ 
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:“APT IP2B communicacion protocol detected”; flow:established,to_server; content:”|12 34 56 78 10 00 10 00|”; depth:8; content:”|00 18 09 07 20|”; distance:4; within:5; reference:url,www.commandfive.com/papers/C5_APT_C2InTheFifthDomain.pdf; classtype:trojan-activity; sid:3000007; rev:1;)
+ 
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:“APT BB communication protocol detected”; flow:established,to_server; content:”|01 00 00 00|”; offset:4; content:”|01 04 01 00|”; distance:8; within:4; reference:url,www.commandfive.com/papers/C5_APT_C2InTheFifthDomain.pdf; classtype:trojan-activity; sid:3000008; rev:1;)
+ 
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:“APT X-Shell 601 communication protocol detected”; flow:to_server,established; content:”|43 36 30 31|”; offset:16; depth:4; reference:url,www.commandfive.com/papers/C5_APT_C2InTheFifthDomain.pdf; classtype:trojan-activity; sid:3000009; rev:1;)
