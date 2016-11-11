@@ -56,7 +56,11 @@ def sendAPT(d, p):
     rats=["Gh0st", lurk, ip2b, qdigit]
     for x i nrange (0, len(rats)):
         a=IP(dst=d)/TCP(flags="S", sport=RandShort(), dport=p)
+<<<<<<< HEAD
         #add apt payload
+=======
+        #add apt string
+>>>>>>> 54d53cd0b5ea7828d4c92576301bc8d960212465
         a.payload=str(rats[x])
         print("Sending rat: "+rats[x])
         send(a, verbose=0)
