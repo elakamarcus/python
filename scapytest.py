@@ -36,6 +36,7 @@ def sendUDP(d, p):
 
 def spoofIP(i):
     #return the gateway of provided IP..~~
+    b=i
     return b
 
 def sendSMURF(d, p):
@@ -67,7 +68,7 @@ if args['count'] == "X" or args['count'] == "x": #x marks the spot
         sendTCP(args['source'], int(args['port']))
         i = i + 1
         print(str(i) + " Packet Sent")
-else: # executed if the user defined an amount of segments to send.
+else: # executed if the user defined an amount to send.
     while i < int(args['count']):
         sendTCP(args['source'], int(args['port']))
         i = i + 1
