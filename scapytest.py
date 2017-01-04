@@ -37,6 +37,7 @@ def sendUDP(d, p):
 def spoofIP(i):
     #return the gateway of provided IP..~~
     b=i
+    a=IP(dst= d, src= b)
     return b
 
 def sendSMURF(d, p):

@@ -11,7 +11,7 @@ if len(sys.argv) > 5:
 s = sys.argv[1]
 d = sys.argv[2]
 q = 5
-if sys.argv[3]:
+if len(sys.argv[3]) > 0:
    count = int(sys.argv[3])
 else:
    count = 1
