@@ -11,7 +11,7 @@ if len(sys.argv) > 5:
 s = sys.argv[1]
 d = sys.argv[2]
 q = 5
-if len(sys.argv[3]) > 0:
+if sys.argv[3]:
    count = int(sys.argv[3])
 else:
    count = 1
@@ -22,11 +22,11 @@ else:
     ping = q + 1
 
 def boingboing(q, p):
-#   while q < ping:
-#   send(p, verbose=0)
-#   global count
-#   count = count + 1
-#   print(str(count) + " spikes sent")
+   while q < ping:
+   send(p, verbose=0)
+   global count
+   count = count + 1
+   print(str(count) + " spikes sent")
 #   comment out for testing... 
     p.show()
 

@@ -24,43 +24,43 @@ i = 0 # variable used to control the while loop for the amount of times a packet
 
 #Function to send various flags. Each may trigger alert by IDS/IPS
 def sendTCP(d, p):
-    flags = ["S","A","F","R"]
-    for x in range (0, len(flags)):
-        a=IP(dst=d)/TCP(flags=flags[x], sport=RandShort(), dport=p)
+    flags = ["S", "A", "F", "R"]
+    for x in range(0, len(flags)):
+        a = IP(dst=d)/TCP(flags=flags[x], sport=RandShort(), dport=p)
     send(a, verbose=0) #transmit packet
 
 
 def sendUDP(d, p):
-    a=IP(dst=d)/UDP(sport=RandShort(), dport=p)
+    a = IP(dst=d)/UDP(sport=RandShort(), dport=p)
     send(a, verbose=0)
 
 def spoofIP(i):
-    #return the gateway of provided IP..~~
-    b=i
-    a=IP(dst= d, src= b)
+    #Spoof what IP..... hmm
+    b = i
+    a = IP(dst= d, src= b)
     return b
 
 def sendSMURF(d, p):
-    print("tralalala~ smurf -->\r\n")
-    s=spoofIP(d)
+    print "tralalala~ smurf -->\r\n"
+    s = spoofIP(d)
     
 def sendFRAG(d, p):
-    sekvens=[1,2,4,3,6,5,8,7,10,9]
-    for x in range (0, len(sekvens)):
-        a=IP(dst=d,src=s)/TCP(flags="S", sport=RandShort(), dport=p,seq=sekvens[x])
+    sekvens = [1,2,4,3,6,5,8,7,10,9]
+    for x in range(0, len(sekvens)):
+        a = IP(dst = d, src = s)/TCP(flags = "S", sport = RandShort(), dport = p, seq = sekvens[x])
         send(a)
 
 def sendAPT(d, p):
     #ip2b 8bit + 4bit + 5bit
-    lurk=[0x4c,0x55,0x52,0x4b,0x30]
-    ip2b=[0x12,0x34,0x56,0x78,0x10,0x00,0x10,0x00,0xFF,0xFF,0xFF,0xFF,0x00,0x18,0x09,0x07,0x20]
-    qdigit=[0x51,0x31,0x39,0x21,0x00]
-    rats=["Gh0st", lurk, ip2b, qdigit]
-    for x in range (0, len(rats)):
-        a=IP(dst=d)/TCP(flags="S", sport=RandShort(), dport=p)
+    lurk = [0x4c, 0x55, 0x52, 0x4b, 0x30]
+    ip2b = [0x12, 0x34, 0x56, 0x78, 0x10, 0x00, 0x10, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x18, 0x09, 0x07, 0x20]
+    qdigit = [0x51, 0x31, 0x39, 0x21, 0x00]
+    rats = ["Gh0st", lurk, ip2b, qdigit]
+    for x in range(0, len(rats)):
+        a = IP(dst = d)/TCP(flags = "S", sport = RandShort(), dport = p)
         #add apt string to payload
-        a.payload=str(rats[x])
-        print("Sending rat: "+rats[x])
+        a.payload = str(rats[x])
+        print "Sending rat: "+rats[x]
         send(a, verbose=0)
 
 
@@ -73,5 +73,6 @@ else: # executed if the user defined an amount to send.
     while i < int(args['count']):
         sendTCP(args['source'], int(args['port']))
         i = i + 1
-        print(str(i) + " Packet Sent")
-print("All packets successfully sent.")
+        print str(i) + " Packet Sent"
+print "All packets successfully sent."
+print "Going to sleep mode ~~~."
