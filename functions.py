@@ -29,4 +29,4 @@ def collatz(n):
         else:
             n = 3 * n + 1
         seq.append(n)
-    print"Collatz results:\n Starting at {}\n {} steps until 1.".format(a, len(seq))
+    return len(seq)-1
