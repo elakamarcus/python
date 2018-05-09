@@ -9,7 +9,6 @@ def isPrime(n):
     return n
     #tbc
 
-
 def isPandigital(n):
     count = 10*[0]
     while n != 0:
@@ -19,7 +18,6 @@ def isPandigital(n):
     return True
 
 def collatz(n):
-    a=n
     seq = [n]
     if n < 1:
         return []
