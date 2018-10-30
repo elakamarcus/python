@@ -3,7 +3,18 @@ from bs4 import BeautifulSoup
 import lxml
 from unidecode import unidecode
 
-fsec = open("security", "a")
+""" 
+There is another version of this, that will build the whole html-file.
+"""
+
+
+""" 
+security - contains links to feeds of security news
+science - contains links to feeds of science news
+other - contains links to feeds of odd news
+"""
+
+fsec = open("security", "a") 
 fsci = open("science", "a")
 fodd = open("other", "a")
 
