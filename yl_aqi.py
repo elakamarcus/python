@@ -11,7 +11,6 @@ rh = {'User-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/201
 url = "https://aqicn.org/city/hongkong/yuen-long/"
 r = requests.get(url, headers = rh)
 soup = BeautifulSoup(r.text, "lxml")
-AQID = soup.find("div", property="id=aqiwgtvalue")
 x = soup.find("div", {"class":"aqivalue"})
 
 print "[+] " + x.text
