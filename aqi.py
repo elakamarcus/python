@@ -8,12 +8,16 @@ rh = {'User-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/201
 yuenlong = "https://aqicn.org/city/hongkong/yuen-long/"
 
 urllist = ["https://aqicn.org/city/hongkong/yuen-long/","https://aqicn.org/city/sweden/stockholm-sodermalm/","http://aqicn.org/city/jiangsu/jintan/shijiancezhan/","http://aqicn.org/city/jiangsu/changzhou/"]
-city = ["Yuen Long", "Stockholm", "Jintan", "Changzhou"]
-
-for a in range(0,4):
+city = ["Yuen Long", "Stockholm", "Jintan   ", "Changzhou"]
+print " City\t\tAQI\tText"
+print "---------------------------------------"
+for a in range(0,len(urllist)):
         url = urllist[a]
         r = requests.get(url, headers = rh)
-        soup = BeautifulSoup(r.text, "lxml")
-        x = soup.find("div", {"class":"aqivalue"})
-        print "[+] " + city[a] + ": " + x.text + " [!] " + x["title"].encode('ascii', 'ignore')
+        if r.status_code == 200:
+                soup = BeautifulSoup(r.text, "lxml")
+                x = soup.find("div", {"class":"aqivalue"})
+                print city[a] + "\t" + x.text + "\t" + x["title"].encode('ascii', 'ignore')
 
+print "---------------------------------------"
+print "              -- EOF --                "
