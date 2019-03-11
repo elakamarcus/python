@@ -10,6 +10,20 @@ _distinct.py_
 _65535_httpget.py_
 - create 65535 http get
 
+_aqi.py_
+- list the air quality in some cities:
+```
+C:\git\python>python aqi.py
+City           AQI     Text
+---------------------------------------        
+Yuen Long       70       Moderate
+Stockholm       29       Good
+Jintan          102      Unhealthy for Sensitive Groups
+Changzhou       137      Unhealthy for Sensitive Groups
+---------------------------------------
+            -- EOF --            
+```
+
 _functions.py_
 - the start of something
 
