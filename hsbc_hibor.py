@@ -4,14 +4,14 @@ import requests
 from bs4 import BeautifulSoup
 
 def countRate(r):
-#x is to be set to the variable...
+#x is to be set to the variable... should be 1.3
     x = 1.300
     if r+x >= 2.375:
         return 2.375
     return r+x
 
 def primeRate(r):
-#x is to be set to the variable...
+#x is to be set to the variable... should be -2.750
     x = 2.750
     return r-x
 
@@ -46,4 +46,4 @@ for th in soup.findAll("th"):
 for ok in soup.findAll("td"):
     pb.append(ok.get_text())
 
-print("HSBC Prime Rate.\nLast set: {}\nPrime: {}- 2.750%\nRate: {}%".format(qb[3], pb[1], primeRate(float(pb[1].replace(" ", "").replace("%","")))))
+print("Date: {}\nPrime: {}- 2.750%\nRate: {}%".format(qb[3], pb[1], primeRate(float(pb[1].replace(" ", "").replace("%","")))))
