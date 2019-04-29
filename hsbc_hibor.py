@@ -21,7 +21,7 @@ for a in r.json()["rateTable"][0].values():
 
 dly = countRate(float(q[2]))
 
-print("Date: {}\nHibor: {:.3f} + 1.300 = {}\nRate: {}%".format(q[1], float(q[2]), float(dly)+1.300,dly))
+print("Date: {}\nHibor: {:.3f} + 1.300% = {}\nMax Rate: {}%".format(q[1], float(q[2]), float(dly)+1.300,dly))
 
 ## TODO:
 ## get the prime rate as well, P+y
