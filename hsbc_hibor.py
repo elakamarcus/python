@@ -30,7 +30,7 @@ dly = countRate(float(qa[2]))
 
 print("-----HIBOR Rate-----")
 
-print("Date: {}\nHibor: {:.3f} + 1.300 = {}\nRate: {}%\n".format(qa[1], float(qa[2]), float(dly)+1.300,dly))
+print("Date: {}\nHibor: {:.3f} + 1.300 = {:.3f}\nRate: {:.3f}%\n".format(qa[1], float(qa[2]), float(qa[2])+1.300,dly))
 
 print("-----Prime Rate-----")
 
@@ -46,4 +46,4 @@ for th in soup.findAll("th"):
 for ok in soup.findAll("td"):
     pb.append(ok.get_text())
 
-print("Date: {}\nPrime: {}- 2.750%\nRate: {}%".format(qb[3], pb[1], primeRate(float(pb[1].replace(" ", "").replace("%","")))))
+print("Date: {}\nPrime: {:.3f}- 2.750%\nRate: {:.3f}%".format(qb[3], pb[1], primeRate(float(pb[1].replace(" ", "").replace("%","")))))
