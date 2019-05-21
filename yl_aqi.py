@@ -5,6 +5,8 @@ from unidecode import unidecode
 
 """
  A simple user-agent, for the request header
+ 
+ TODO: convert to py3
 """
 rh = {'User-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0'}
 
