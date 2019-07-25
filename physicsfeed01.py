@@ -16,10 +16,15 @@ r = requests.get(url, headers = rh)
 # let bs4 use xml to parse. lxml don't handle self-closing tags well
 soup = BeautifulSoup(r.text, "xml")
 
-# loop through articles, the tag is called item
-for article in soup.findAll("item"):
-    title = article.find("title").text # title of the news
-    description = article.find("description").text # brief information
-    links = article.find("link").text # link to full article
-    # print it all..
-    print("Title: {}\nBrief: {}\nURL: {}\n".format(title, description, links))
+# just verify successful only connections..
+if r.status_code == 200: 
+    # loop through articles, the tag is called item
+    for article in soup.findAll("item"):
+        title = article.find("title").text # title of the news
+        description = article.find("description").text # brief information
+        links = article.find("link").text # link to full article
+        # print it all..
+        print("Title: {}\nBrief: {}\nURL: {}\n".format(title, description, links))
+else:
+    print("Unable to make the connection. Quit.")
+
