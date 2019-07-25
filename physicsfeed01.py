@@ -1,4 +1,20 @@
-# physics feed
+
+"""
+Physics news feed
+
+Intention is to feed into self-scrolling window for awesome effects.
+
+TODO:
+    1. Review XML to identify which tags are interesting
+    2. Fetch site and grab out the 
+        1. Title
+        2. Description, e.g. brief summary of the news
+        3. URL
+    3. Formatting to match the self-scrolling w/e for awesome effects.
+
+    1-2 = completed.
+
+"""
 
 from bs4 import BeautifulSoup
 import requests
@@ -16,8 +32,7 @@ r = requests.get(url, headers = rh)
 # let bs4 use xml to parse. lxml don't handle self-closing tags well
 soup = BeautifulSoup(r.text, "xml")
 
-# just verify successful only connections..
-if r.status_code == 200: 
+if r.status_code == 200: # just verify successful only connections..
     # loop through articles, the tag is called item
     for article in soup.findAll("item"):
         title = article.find("title").text # title of the news
