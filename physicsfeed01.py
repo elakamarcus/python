@@ -43,7 +43,7 @@ try:
             #  print it all..
             # print("Title: {}\nBrief: {}\nURL: {}\n".format(title, description, links))
             # write to file
-            fout.write(title + '\n' + description + '\n')
+            fout.write(title + '\n' + description + '\n' + links + '\n')
 
     else:
         print("Unable to connect. Error code: {}".format(r.status_code))
