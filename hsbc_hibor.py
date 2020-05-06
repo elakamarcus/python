@@ -22,7 +22,7 @@ bh = {"User-agent" : "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/201
 # URL to table details
 urla = "https://rbwm-api.hsbc.com.hk/digital-pws-tools-hibor-eapi-prod-proxy/v1/hibor?year="
 qa = [0]
-ra = requests.get(urla, headers = bh)
+ra = requests.get(urla, headers=bh)
 for a in ra.json()["rateTable"][0].values():
     qa.append(a)
 
@@ -46,4 +46,4 @@ for th in soup.findAll("th"):
 for ok in soup.findAll("td"):
     pb.append(ok.get_text())
 
-print("Date: {}\nPrime: {:.3f}- 2.750%\nRate: {:.3f}%".format(qb[3], pb[1], primeRate(float(pb[1].replace(" ", "").replace("%","")))))
+print("Date: {}\nPrime: {:.3f}- 2.750%\nRate: {:.3f}%".format(pb[1], float(pb[2].replace(" ", "").replace("%","")), primeRate(float(pb[2].replace(" ", "").replace("%","")))))
