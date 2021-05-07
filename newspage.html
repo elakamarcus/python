@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Physics news">
+    <meta name="application-name" content="Unnamed application">
+    <meta name="description" content="Physics news">
+    <meta name="generator" content="notepad">
+    <meta name="keywords" content="Web Dev, Webbprogrammering, HTML">
+    <meta name="robots" content="index">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WPROG1 - Gesall prov</title>
+    <link href="css/stylesheet.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="page">
+        <header>
+            <nav>|
+                <a href="newspage.php">News</a> |
+                <a href="physics.php">something</a> |
+                <a href="rtnews.php">somethingelse</a>
+                |
+            </nav>
+        </header>
+        <div id="content">
+
+            <article id="news">
+                <h2>
+                    News feed
+                </h2>
+                <table id="news">
+                    <thead>
+                        <tr>
+                            <th>
+                                ---$DTA---
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--==yy==-->
+                        <tr>
+                            <th id="art_title">
+                                ---$TITLE---
+                            </th>
+                        </tr>
+                        <tr>
+                            <td id="art_desc">
+                                ---$DESC---
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="art_url">
+                                <a href="---$URL---"> ---$URL--- </a>
+                            </td>
+                        </tr>
+                        <!--==yy==-->
+                    </tbody>
+                </table>
+            </article>
+        </div>
+        <footer>
+            <details>
+                <summary>Information about you</summary>
+                <p>Your IP: <a href="visitlog.php">---$IP---</a></p>
+                <p>Your User-Agent: ---$UA---</p>
+                <p>Visitor no: ---$NO---</p>
+            </details>
+            <details>
+                <summary>Contact information</summary>
+                <p>Find the feedback form <a href="feedbackform.php">here.</a></p>
+            </details>
+        </footer>
+    </div>
+</body>
+
+</html>
