@@ -13,7 +13,7 @@ class SpaceShip:
     
     def takeDMG(self, hit):
         self.health -= hit
-        if self.health < 0:
+        if self.health <= 0:
             del self
 
     def isAlive(self):
@@ -63,6 +63,10 @@ class Destroyer(SpaceShip):
         print("| {} has {} hp remaining".format(targetship.id, targetship.health))
         print("|-------------------------")
 
+    def __del__(self):
+        print("{} was destroyed and is no more.".format(self.id))
+        del self
+
 class Medic(SpaceShip):
     def __init__(self, id, health, x, y, healingrate):
         super().__init__(id, health, x, y)
@@ -92,19 +96,15 @@ class Medic(SpaceShip):
 def spaceMain():
     x = Destroyer("Foehammer", 100, 14, 48, "Photon torpedoes", 78)
     x.shipinfo() 
-    #x.shipinfo()
     y = Medic("Pathways", 100, 13, 50, 50)
     y.shipID()
-    #y.shipID()
-    #y.shipinfo()
 
     for a in range(5):
         x.attackDMG(y)
-#    while(True):
-#        x.attackDMG(y)
-#        if(y.health < 0):
-#            y.__del__()
-#            break
+
+    x.__del__()
+    y.__del__()
+
 
 def main():
     spaceMain()
