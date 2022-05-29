@@ -47,10 +47,10 @@ def readWriteCSV(inFile, outFile):
                 if cnt == 0:
                     #print(f'{", ".join(row).strip()}')
                     cnt += 1
-                    outWrite.writerow([row[0], row[1], row[2]])
+                    outWrite.writerow([row[0], row[1], row[2], row[3]])
                 else:
                     #print(f'{row[0], row[1], shortType(row[2])})
-                    outWrite.writerow([row[0], row[1], shortType(row[2])])
+                    outWrite.writerow([row[0], row[1], shortType(row[2]), row[3]])
                     cnt += 1
 
             # clean up...
@@ -60,7 +60,6 @@ def readWriteCSV(inFile, outFile):
         
     except:
         print(f'Error opening file. Did you put the right name?\n{sys.argv[1]}')
-
 
 def main():
     now = datetime.datetime.now()
