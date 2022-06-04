@@ -45,12 +45,12 @@ def readWriteCSV(inFile, outFile):
             cnt = 0
             for row in readCSV:
                 if cnt == 0:
-                    #print(f'{", ".join(row).strip()}')
+                    # print(f'{", ".join(row).strip()}') // for testing
                     cnt += 1
                     outWrite.writerow([row[0], row[1], row[2], row[3]])
                 else:
-                    #print(f'{row[0], row[1], shortType(row[2])})
-                    outWrite.writerow([row[0], row[1], shortType(row[2]), row[3]])
+                    # print(f'{row[0], row[1], shortType(row[2])}) // for testing
+                    outWrite.writerow([row[0], shortType(row[1]), row[2], row[3]])
                     cnt += 1
 
             # clean up...
