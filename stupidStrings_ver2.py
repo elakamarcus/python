@@ -8,6 +8,7 @@ def shortType(str):
     """
     The function splits the string delimited by -, _ or blank space, and returns
     the first and second value. This should be sufficient to create an overview in pivot table.
+    Note: This returns only two fields.
     """
     if str.find("-") > 0:
         newstr = str.split("-")
