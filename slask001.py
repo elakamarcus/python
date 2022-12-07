@@ -15,7 +15,7 @@ class Square(Shape):
         print("|-------------|")
         print(f'|x = {self.x} ------|')
         print(f'|y = {self.y} -------|')
-        print("|             |")
+        print("|-------------|")
         print(f'|A = {self.x * self.y} ------|')
         print(f'|C = {self.x*2 + self.y*2} ------|')
         print("|-------------|")
