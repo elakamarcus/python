@@ -32,7 +32,6 @@ def get_fund_info(fund_id):
             nav_date = "Date not available"
         
         # Print the information
-       # print(f"Fund: {fund_name}")
         print(f"{fund_name}: {nav_price} SEK (as of {nav_date})")
     
     else:
@@ -41,7 +40,6 @@ def get_fund_info(fund_id):
 
 def get_stock_info(stock_id):
     # API URL for stocks
-#    url = f"https://www.avanza.se/_api/price/stock/{stock_id}"
     url = f"https://www.avanza.se/_api/market-guide/stock/{stock_id}"
 
 
