@@ -32,7 +32,7 @@ def get_fund_info(fund_id):
             nav_date = "Date not available"
         
         # Print the information
-        #print(f"{fund_name}: {nav_price} SEK (as of {nav_date})")
+        # TODO: print(f"{fund_name}: {nav_price} SEK (as of {nav_date})")
         print(f"{fund_name}: {nav_price} SEK ()")
     
     else:
@@ -74,8 +74,7 @@ def get_stock_info(stock_id):
             stock_date = "Date not available"
 
         # Print the information
-       # print(f"Stock: {stock_name}")
-        #print(f"{stock_name}: {stock_price} SEK (as of {stock_date})")
+        # TODO: print(f"{stock_name}: {stock_price} SEK (as of {stock_date})")
         print(f"{stock_name}: {stock_price} SEK (High: {stock_high}, Low: {stock_low}, AVG: {stock_avg:.2f})")
 
 
