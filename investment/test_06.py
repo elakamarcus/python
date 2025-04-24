@@ -32,7 +32,8 @@ def get_fund_info(fund_id):
             nav_date = "Date not available"
         
         # Print the information
-        print(f"{fund_name}: {nav_price} SEK (as of {nav_date})")
+        #print(f"{fund_name}: {nav_price} SEK (as of {nav_date})")
+        print(f"{fund_name}: {nav_price} SEK ()")
     
     else:
         print(f"Failed to retrieve data: {response.status_code}")
@@ -59,7 +60,8 @@ def get_stock_info(stock_id):
         quote = data.get("quote", {})
         stock_price = quote.get("last", "Price not available")
         stock_date_raw = data.get("date", None)
-
+        stock_low = quote.get("lowest", "Not available")
+        stock_high = quote.get("highest", "Not available")
 
         # If we have a date, format it to YYYY-MM-DD
         if stock_date_raw:
@@ -72,8 +74,10 @@ def get_stock_info(stock_id):
 
         # Print the information
        # print(f"Stock: {stock_name}")
-        print(f"{stock_name}: {stock_price} SEK (as of {stock_date})")
-    
+        #print(f"{stock_name}: {stock_price} SEK (as of {stock_date})")
+        print(f"{stock_name}: {stock_price} SEK (High: {stock_high}, Low: {stock_low})")
+
+
     else:
         print(f"Failed to retrieve data: {response.status_code}")
 
