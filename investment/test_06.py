@@ -62,6 +62,7 @@ def get_stock_info(stock_id):
         stock_date_raw = data.get("date", None)
         stock_low = quote.get("lowest", "Not available")
         stock_high = quote.get("highest", "Not available")
+        stock_avg = (stock_high + stock_low ) /2
 
         # If we have a date, format it to YYYY-MM-DD
         if stock_date_raw:
@@ -75,7 +76,7 @@ def get_stock_info(stock_id):
         # Print the information
        # print(f"Stock: {stock_name}")
         #print(f"{stock_name}: {stock_price} SEK (as of {stock_date})")
-        print(f"{stock_name}: {stock_price} SEK (High: {stock_high}, Low: {stock_low})")
+        print(f"{stock_name}: {stock_price} SEK (High: {stock_high}, Low: {stock_low}, AVG: {stock_avg:.2f})")
 
 
     else:
