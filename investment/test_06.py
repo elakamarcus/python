@@ -18,10 +18,9 @@ def get_response_body(url):
 
 # Function to fetch and display fund information
 def get_fund_info(fund_id):
-    # API URL
-    url = f"https://www.avanza.se/_api/fund-guide/guide/{fund_id}"
+    # pull the data
 
-    data = get_response_body(url)
+    data = get_response_body(f"https://www.avanza.se/_api/fund-guide/guide/{fund_id}")
     # Extract the required information from the JSON
     fund_name = data.get("name", "Fund name not available")
     nav_price = data.get("nav", "NAV not available")
@@ -31,10 +30,8 @@ def get_fund_info(fund_id):
     print(f"{fund_name}: {nav_price} SEK ()")
 
 def get_stock_info(stock_id):
-    # API URL for stocks
-    url = f"https://www.avanza.se/_api/market-guide/stock/{stock_id}"
-
-    data = get_response_body(url)
+    # pull the data
+    data = get_response_body(f"https://www.avanza.se/_api/market-guide/stock/{stock_id}")
     # Extract the required information from the JSON
     stock_name = data.get("name", "Stock name not available")
     # stock_price = data.get("price", "Price not available")
