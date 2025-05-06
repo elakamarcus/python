@@ -23,11 +23,11 @@ def get_fund_info(fund_id):
     data = get_response_body(f"https://www.avanza.se/_api/fund-guide/guide/{fund_id}")
     # Extract the required information from the JSON
     fund_name = data.get("name", "Fund name not available")
-    fund_price = data.get("nav", "NAV not available")
+    fund_price = data.get("nav", "Price (NAV) not available")
         
     # Print the information
     # TODO: print(f"{fund_name}: {nav_price} SEK (as of {nav_date})")
-    print(f"{fund_name}: {fund_price} SEK ()")
+    print(f"{fund_name}: {fund_price} SEK")
 
 def get_stock_info(stock_id):
     # pull the data
