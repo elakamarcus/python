@@ -13,16 +13,16 @@ DetectorFactory.seed = 0
 MUNICIPALITY_CODE = "0180"  # Stockholm municipality
 BASE_URL = "https://jobsearch.api.jobtechdev.se/search"
 PAGE_SIZE = 100
-MAX_PAGES = 100  # safety limit
+MAX_PAGES = 150  # safety limit
 
 # Keyword lists
 ENGLISH_KEYWORDS = [
     "english", "engelska", "fluent in english",
     "business english", "apply in english",
-    "good command of english", "chinese", "china", "kina", "kinesiska"
+    "good command of english", "chinese", "china", "kina", "kinesiska", "mandarin"
 ]
 NEGATIVE_KEYWORDS = [
-    "no english", "not english"
+    "no english", "not english", "städare", "skötare", "fluent in Swedish", "care assistant", "obehindrat på både svenska", "obehindrat på svenska"
 ]
 
 # File paths
