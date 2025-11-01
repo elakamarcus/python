@@ -1,0 +1,6 @@
+{
+  "bbc.com": {"bias": "Center-Left", "source": "Ad Fontes"},
+  "foxnews.com": {"bias": "Right", "source": "AllSides"},
+  "svt.se": {"bias": "Left", "source": "MBFC"},
+  "expressen.se": {"bias": "Center", "source": "MBFC"}
+}
