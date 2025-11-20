@@ -39,7 +39,7 @@ def get_stock_info(stock_id):
     stock_price = quote.get("last", "Price not available")
     stock_low = quote.get("lowest", "Not available")
     stock_high = quote.get("highest", "Not available")
-    stock_avg = (stock_high + stock_low ) /2
+    stock_avg = (int(stock_high) + int(stock_low) ) /2
 
     # Print the information
     # TODO: print(f"{stock_name}: {stock_price} SEK (as of {stock_date})")
