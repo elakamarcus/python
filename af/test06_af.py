@@ -13,20 +13,18 @@ DetectorFactory.seed = 0
 MUNICIPALITY_CODE = "0180"  # Stockholm municipality
 BASE_URL = "https://jobsearch.api.jobtechdev.se/search"
 PAGE_SIZE = 100
-MAX_PAGES = 150  # safety limit
+MAX_PAGES = 200  # safety limit
 
 # Keyword lists
 ENGLISH_KEYWORDS = [
-    "english", "engelska", "fluent in english",
-    "business english", "apply in english",
-    "good command of english", "chinese", "china", "kina", "kinesiska", "mandarin"
+    "säkerhet", "cybersecurity", "cybersäkerhet", "it säkerhet", "it-säkerhet", "informationsecurity", "information security"
 ]
 NEGATIVE_KEYWORDS = [
-    "no english", "not english", "städare", "skötare", "fluent in Swedish", "care assistant", "obehindrat på både svenska", "obehindrat på svenska", "diska"
+    "junior", "säljare", "inköp", "engineer", "ingenjör", "sales" 
 ]
 
 # File paths
-OUTPUT_FILE = "stockholm_english_jobs.csv"
+OUTPUT_FILE = "stockholm_cyber_jobs.csv"
 TRACKER_FILE = "applied_jobs.csv"
 
 
@@ -170,7 +168,7 @@ def main():
             must_have = " ".join(job.get("mustHave", []) or [])
             nice_to_have = " ".join(job.get("niceToHave", []) or [])
 
-            combined = " ".join([title, text, must_have, nice_to_have])
+            combined = " ".join([title])
 
             lang = detect_lang(combined)
             english_flag = mentions_english(combined)
