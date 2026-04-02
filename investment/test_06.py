@@ -39,7 +39,10 @@ def get_stock_info(stock_id):
     stock_price = quote.get("last", "Price not available")
     stock_low = quote.get("lowest", "Not available")
     stock_high = quote.get("highest", "Not available")
-    stock_avg = (int(stock_high) + int(stock_low) ) /2
+    try:
+       stock_avg = (stock_high + stock_low ) /2
+    except:
+       stock_avg = 0
 
     # Print the information
     # TODO: print(f"{stock_name}: {stock_price} SEK (as of {stock_date})")
@@ -54,7 +57,18 @@ for fund_id in fund_ids:
     get_fund_info(fund_id)
 
 # Stock IDs to check
-stock_ids = [5269, 5401, 52332, 5247, 5364]  # Example stock IDs, replace with your own
+stock_ids = [5241, 5249, 5264, 5255, 5247, 5386, 5269, 330435]
+"""
+Swedbank (swed-a.st) 5241
+Nordea (NDA-SE.ST) 5249
+Handelsbanken (SHB-A.ST) 5264
+SEB (SEB-A.ST) 5255
+Sparebank 1 (SN1NO.OL) 330435
+Investor (INVE-B.ST) 5247
+Tele2 (TEL2-B.st) 5386
+Volvo (VOLV-B.ST) 5269
+
+"""
 
 # Loop through the stock IDs and get their information
 for stock_id in stock_ids:
