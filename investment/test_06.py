@@ -50,7 +50,13 @@ def get_stock_info(stock_id):
 
 
 # Fund IDs to check
-fund_ids = [150048, 2007]  # Add your fund IDs here
+fund_ids = [150048, 878733, 944976]  # Add your fund IDs here
+
+"""
+SEB Sverige Indexnära A, 150048
+Avanza Global, 878733
+Avanza Emerging Markets, 944976
+"""
 
 # Loop through the fund IDs and get their information
 for fund_id in fund_ids:
