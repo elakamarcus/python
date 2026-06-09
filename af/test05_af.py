@@ -22,7 +22,7 @@ ENGLISH_KEYWORDS = [
     "good command of english", "chinese", "china", "kina", "kinesiska", "mandarin"
 ]
 NEGATIVE_KEYWORDS = [
-    "no english", "not english", "städare", "skötare", "fluent in Swedish", "care assistant", "obehindrat på både svenska", "obehindrat på svenska", "diska"
+    "no english", "not english", "servitris", "städare", "cleaner", "diskare"
 ]
 
 # File paths
