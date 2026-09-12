@@ -168,12 +168,8 @@ def main():
             must_have = " ".join(job.get("mustHave", []) or [])
             nice_to_have = " ".join(job.get("niceToHave", []) or [])
 
-<<<<<<< HEAD
-            combined = " ".join([title])
-=======
             combined = " ".join([title, text, must_have, nice_to_have])
->>>>>>> 4f93890 (d)
-
+c experience f
             lang = detect_lang(combined)
             english_flag = mentions_english(combined)
 
